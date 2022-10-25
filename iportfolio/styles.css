@@ -1,0 +1,52 @@
+nav ul li{
+    display: inline-flex;
+    margin: 2vw;
+}
+h1, h2, #leave_a_message{
+  text-align: center;
+}
+body{
+    background-color: black;
+    color: white;
+}
+nav a{
+    color: white;
+    text-decoration: none;
+}
+nav a:hover, h1, h2{
+    color:gold;
+}
+#about_me, #profile-link, #footer
+{
+    text-align: center;
+}
+#about_me p{
+    color: white;
+}
+#about_me img
+{
+    height: 300px;
+    width: 200px;
+    border-radius: 50%;
+}
+.project-tile .card
+{
+    margin: 3vw;
+    display: inline-block;
+}
+.card-body
+{
+    color: black;
+}
+.profile
+{
+    display: inline-block;
+}
+#social_profiles li{
+    list-style-type: none;
+    text-align:center;
+    margin-bottom: 30px;
+}
+.centered{
+  text-align:center;
+}
