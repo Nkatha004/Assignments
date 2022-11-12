@@ -1,47 +1,79 @@
-var index = 0;
+const slider = document.querySelector(".slider");
+const nextBtn = document.querySelector(".next-btn");
+const prevBtn = document.querySelector(".prev-btn");
+const slides = document.querySelectorAll(".slide");
+const slideIcons = document.querySelectorAll(".slide-icon");
+const numberOfSlides = slides.length;
+var slideNumber = 0;
 
-showImage(index)
+//image slider next button
+nextBtn.addEventListener("click", () => {
+    slides.forEach((slide) => {
+    slide.classList.remove("active");
+    });
+    slideIcons.forEach((slideIcon) => {
+    slideIcon.classList.remove("active");
+    });
 
-function side_slide(e){
-    showImage(index +=e);
+    slideNumber++;
+
+    if(slideNumber > (numberOfSlides - 1)){
+    slideNumber = 0;
+    }
+
+    slides[slideNumber].classList.add("active");
+    slideIcons[slideNumber].classList.add("active");
+});
+
+//image slider previous button
+prevBtn.addEventListener("click", () => {
+    slides.forEach((slide) => {
+    slide.classList.remove("active");
+    });
+    slideIcons.forEach((slideIcon) => {
+    slideIcon.classList.remove("active");
+    });
+
+    slideNumber--;
+
+    if(slideNumber < 0){
+    slideNumber = numberOfSlides - 1;
+    }
+
+    slides[slideNumber].classList.add("active");
+    slideIcons[slideNumber].classList.add("active");
+});
+
+//image slider autoplay
+var playSlider;
+
+var repeater = () => {
+    playSlider = setInterval(function(){
+    slides.forEach((slide) => {
+        slide.classList.remove("active");
+    });
+    slideIcons.forEach((slideIcon) => {
+        slideIcon.classList.remove("active");
+    });
+
+    slideNumber++;
+
+    if(slideNumber > (numberOfSlides - 1)){
+        slideNumber = 0;
+    }
+
+    slides[slideNumber].classList.add("active");
+    slideIcons[slideNumber].classList.add("active");
+    }, 3000);
 }
+repeater();
 
-function showImage(e){
-    var i;
-    const img = document.querySelectorAll('img');
-    if(e > img.length){
-        index = 1;
-    }
-    if(e < 1){
-        index = img.length
-    }
-    for(i = 0; i < img.length; i++){
-        img[i].style.display='none';
-    }
+//stop the image slider autoplay on mouseover
+slider.addEventListener("mouseover", () => {
+    clearInterval(playSlider);
+});
 
-    img[index - 1].style.display='block';
-}
-// var images =[];
-
-// var time = 3000;
-
-// //image list
-// images[0] = 'image0.jpg'
-// images[1] = 'image1.jpg'
-// images[2] = 'image2.jpg'
-// images[3] = 'image3.jpg'
-// images[4] = 'image4.jpg'
-
-// function changeImage(){
-//     document.slide.src = images[i]
-
-//     if(i < images.length - 1){
-//         i++;
-//     }else{
-//         i=0;
-//     }
-
-//     setTimeout("changeImage()", time);
-// }
-
-// window.onload = changeImage
+//start the image slider autoplay again on mouseout
+slider.addEventListener("mouseout", () => {
+    repeater();
+});

@@ -1,28 +1,39 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>JavaScript</title>
-        <link href = "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel ="stylesheet">
-        <link href = "styles.css" rel = "stylesheet">
-    </head>
-    <body>
-        <div class = "content">
-            <div class = "images">
-                <img src="image0.jpg">
-                <img src="image5.jpg">
-                <img src="image2.jpg">
-                <img src="image3.jpg">
-                <img src="image4.jpg">
-            </div>
-        </div>
-        <div onClick="side_slide(-1)" class = "slide left">
-            <span class="fa fa-angle-left"></span>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Slider With Next And Previous Buttons</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  </head>
+  <body>
 
-        </div>
-        <div onClick="side_slide(1)" class = 'slide right'>
-            <span class="fa fa-angle-right"></span>
-
-        </div>
-        <script src="script.js"></script>
-    </body>
+    <div class="slider">
+      <div class="slide active">
+        <img src="image0.jpg" alt="">
+      </div>
+      <div class="slide">
+        <img src="image1.jpg" alt="">
+      </div>
+      <div class="slide">
+        <img src="image2.jpg" alt="">
+      </div>
+      <div class="slide">
+        <img src="image3.jpg" alt="">
+      </div>
+      <div class="slide">
+        <img src="image4.jpg" alt="">
+      </div>
+      <div class="slide">
+        <img src="image5.jpg" alt="">
+      </div>
+      <div class="navigation">
+        <i class="fas fa-chevron-left prev-btn"></i>
+        <i class="fas fa-chevron-right next-btn"></i>
+      </div>
+    </div>
+    <script src = "script.js"></script>
+  </body>
 </html>
+      
